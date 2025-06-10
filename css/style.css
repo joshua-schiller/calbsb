@@ -1,0 +1,664 @@
+/* Basic Reset & Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #092f53; /* Berkeley Blue */
+    --secondary-color: #FDB515; /* California Gold */
+    --accent-color: #337ab7; /* A subtle blue for links/hover */
+    --dark-text: #333;
+    --light-text: #ebebeb;
+    --light-bg: #ebebeb;
+    --dark-bg: #092f53;
+    --border-color: #ddd;
+    --transition-speed: 0.3s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: var(--dark-text);
+    background-color: #ebebeb;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color var(--transition-speed);
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+ul {
+    list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 15px;
+    color: var(--dark-text);
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-align: center;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+    margin-right: 10px; /* Space between buttons */
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--primary-color);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+}
+
+/* Header */
+.main-header {
+    background-color: #fff;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-header .logo img {
+    height: 80px; /* Adjust logo size */
+}
+
+.main-nav .nav-links {
+    display: flex;
+}
+
+.main-nav .nav-links li {
+    margin-left: 30px;
+}
+
+.main-nav .nav-links a {
+    color: var(--dark-text);
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 5px; /* Space for underline effect */
+}
+
+.main-nav .nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    left: 0;
+    bottom: 0;
+    transition: width var(--transition-speed);
+}
+
+.main-nav .nav-links a:hover::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none; /* Hidden on desktop */
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--dark-text);
+    transition: all 0.3s ease;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../assets/images/berkeley-at-night-hero.png') no-repeat center center/cover;
+    color: var(--light-text);
+    text-align: center;
+    padding: 100px 20px;
+    min-height: 500px; /* Adjust as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden; /* For potential future background animations */
+}
+
+.hero-content {
+    max-width: 800px;
+    z-index: 2; /* Ensure content is above any overlays */
+}
+
+.hero-content h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    color: inherit; /* Inherit color from parent */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Adds depth */
+}
+
+.hero-content p {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+/* Content Sections */
+.content-section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.content-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block; /* For the underline effect */
+}
+
+.content-section h2::after {
+    content: '';
+    position: absolute;
+    width: 60px; /* Length of the underline */
+    height: 4px;
+    background-color: var(--primary-color);
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px; /* Distance from text */
+    border-radius: 2px;
+}
+
+.content-section p {
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    font-size: 1.1em;
+}
+
+.light-bg {
+    background-color: var(--light-bg);
+}
+
+.dark-bg {
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+}
+
+.dark-bg h2, .dark-bg p {
+    color: var(--light-text);
+}
+
+.dark-bg a.btn-secondary {
+    color: var(--light-text);
+    border-color: var(--light-text);
+}
+
+.dark-bg a.btn-secondary:hover {
+    background-color: var(--light-text);
+    color: var(--dark-bg);
+}
+
+/* ID specific styling */
+
+/* You can place this new rule after the .hero-section styles or in a logical grouping */
+#join-us {
+    background: url('../assets/images/berkeley-at-day-join.png') no-repeat center center/cover;
+    color: var(--light-text); /* Change text color if your background is dark */
+    position: relative; /* Needed if you want to add an overlay directly inside */
+    z-index: 1; /* Ensures content is above any potential pseudo-element overlays */
+    /* If you want less padding, adjust here or remove the existing content-section padding for this ID */
+    padding-top: 100px; /* Example: adjust padding to account for the image */
+    padding-bottom: 100px;
+}
+
+/* Optional: Add a semi-transparent overlay for text readability */
+#join-us::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    z-index: -1; /* Place behind content */
+}
+
+/* Ensure headings/text are visible over the dark background */
+#join-us h2,
+#join-us h3,
+#join-us p {
+    color: var(--light-text); /* Adjust as needed based on your background and text */
+}
+
+#our-services {
+    background: url('../assets/images/berkeley-at-night-our-services.png') no-repeat center center/cover;
+    color: var(--light-text); /* Change text color if your background is dark */
+    position: relative; /* Needed if you want to add an overlay directly inside */
+    z-index: 1; /* Ensures content is above any potential pseudo-element overlays */
+    /* If you want less padding, adjust here or remove the existing content-section padding for this ID */
+    padding-top: 100px; /* Example: adjust padding to account for the image */
+    padding-bottom: 100px;
+}
+
+/* Optional: Add a semi-transparent overlay for text readability */
+#our-services::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    z-index: -1; /* Place behind content */
+}
+
+/* Ensure headings/text are visible over the dark background */
+#our-services h2,
+#our-services h3,
+#our-services p {
+    color: var(--light-text); /* Adjust as needed based on your background and text */
+}
+
+/* If you have grid-items and want them to stand out on the background, */
+/* you might give them a semi-transparent or solid white background */
+#our-services .grid-item {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+    color: var(--dark-text); /* Ensure text inside grid-item is dark */
+}
+#our-services .grid-item h3,
+#our-services .grid-item p {
+    color: var(--dark-text); /* Override to ensure these are dark */
+}
+
+/* Client Value Section */
+#client-value {
+    /* If you added a background image here, you'd put it like: */
+    /* background: url('../assets/images/your-clients-bg.jpg') no-repeat center center/cover; */
+    /* position: relative; z-index: 1; */
+    /* You might want to adjust padding here if you use a background image and overlay */
+
+}
+
+.section-description {
+    font-size: 1.2em;
+    max-width: 900px;
+    margin: 0 auto 30px auto; /* Add more bottom margin for spacing */
+}
+
+.value-metrics {
+    display: flex;
+    justify-content: space-around; /* Distributes items evenly */
+    align-items: flex-start; /* Aligns items to the top if descriptions vary in height */
+    flex-wrap: wrap; /* Allows items to wrap to the next line on smaller screens */
+    gap: 40px; /* Space between items */
+    margin-top: 20px;
+}
+
+.metric-item {
+    flex: 1; /* Allows items to grow and shrink */
+    min-width: 280px; /* Minimum width before wrapping */
+    text-align: center;
+    padding: 20px;
+    /* Optional: Add a subtle background or border to each metric item */
+    /* background-color: rgba(255, 255, 255, 0.05); */
+    /* border-radius: 8px; */
+}
+
+.metric-number {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.8em; /* Large number size */
+    font-weight: 700;
+    color: var(--secondary-color); /* California Gold for numbers */
+    display: block; /* Makes the number take full width */
+    margin-bottom: 10px;
+}
+
+.metric-number .unit {
+    font-size: 0.6em; /* Make unit smaller relative to the number */
+    font-weight: 600;
+    /* color: var(--light-text); /* Can be different from number */
+}
+
+.metric-description {
+    font-size: 1.1em; /* Smaller text for description */
+    color: #ccc; /* Slightly lighter text color for description */
+    margin-bottom: 0; /* Remove default paragraph margin */
+    line-height: 1.5;
+    max-width: 280px; /* Constrain width for better readability */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .value-metrics {
+        flex-direction: column; /* Stack items vertically on mobile */
+        gap: 60px; /* More space between stacked items */
+    }
+
+    .metric-item {
+        min-width: unset; /* Remove min-width when stacking */
+        max-width: 400px; /* Limit width of stacked items for readability */
+        margin: 0 auto; /* Center individual items */
+    }
+
+    .metric-number {
+        font-size: 3em; /* Slightly smaller on mobile */
+    }
+
+    .metric-description {
+        font-size: 1em;
+    }
+}
+
+/* Our Approach Section (in Services) */
+.approach-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch; /* IMPORTANT: Change this from 'center' to 'stretch' */
+                          /* This makes flex items stretch to fill the height of the container */
+    gap: 40px;
+    flex-direction: row;
+}
+
+.approach-content {
+    flex: 2;
+    max-width: 70%;
+    text-align: left;
+    color: var(--dark-text);
+}
+
+.approach-content h2 {
+    text-align: left;
+    margin-bottom: 25px;
+}
+
+.approach-content h2::after {
+    left: 0;
+    transform: translateX(0);
+}
+
+.approach-content p {
+    text-align: left;
+    margin-bottom: 20px;
+    max-width: none;
+}
+
+.approach-image {
+    flex: 1;
+    max-width: 30%;
+    text-align: right;
+
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Keep this - it's crucial for hiding the overflowing parts of the wider image */
+}
+
+.approach-image img {
+    /* NEW / UPDATED STYLES FOR PARALLAX PAN: */
+    width: 120%; /* Make the image 20% wider than its container */
+    height: 100%; /* Still fills the height */
+    object-fit: cover; /* Maintains aspect ratio, will crop if necessary */
+    transform: translateX(0%); /* Initial position. We'll control this with JS */
+    will-change: transform; /* Performance optimization: tells browser this property will change */
+    
+    /* Existing styles: */
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Responsive Adjustments for Our Approach Section --- */
+@media (max-width: 992px) {
+    .approach-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .approach-content,
+    .approach-image {
+        flex: unset;
+        max-width: 100%;
+        text-align: center;
+        height: auto; /* Reset height on mobile so it doesn't force height */
+    }
+
+    .approach-image {
+        order: -1;
+        margin-bottom: 30px;
+    }
+     .approach-content h2,
+     .approach-content p {
+        text-align: center;
+     }
+
+    .approach-content h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+}
+
+/* Grid Layouts */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    text-align: left;
+    margin-top: 50px;
+}
+
+.grid-item {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.grid-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+}
+
+.grid-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.grid-item p {
+    margin-bottom: 0; /* Override default paragraph margin */
+    font-size: 1em;
+    color: #555;
+}
+
+/* Footer */
+.main-footer {
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    padding: 60px 0 20px;
+    font-size: 0.9em;
+}
+
+.main-footer .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-col h3 {
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    font-size: 1.3em;
+}
+
+.footer-col p, .footer-col li {
+    color: #bbb;
+    margin-bottom: 8px;
+}
+
+.footer-col a {
+    color: #bbb;
+    transition: color var(--transition-speed);
+}
+
+.footer-col a:hover {
+    color: var(--light-text);
+}
+
+.footer-col .social-links img {
+    height: 30px;
+    width: 30px;
+    margin-right: 15px;
+    transition: transform 0.3s ease;
+}
+
+.footer-col .social-links img:hover {
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #999;
+}
+
+
+/* --- Responsive Design (Mobile First Approach) --- */
+@media (max-width: 768px) {
+    .main-nav .nav-links {
+        display: none; /* Hide desktop nav */
+        flex-direction: column;
+        width: 100%;
+        background-color: #fff;
+        position: absolute;
+        top: 80px; /* Below header */
+        left: 0;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        padding: 20px 0;
+        z-index: 999;
+    }
+
+    .main-nav .nav-links.active {
+        display: flex; /* Show when active */
+    }
+
+    .main-nav .nav-links li {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .hamburger {
+        display: flex; /* Show hamburger icon */
+    }
+
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    .content-section {
+        padding: 60px 0;
+    }
+
+    .content-section h2 {
+        font-size: 2em;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr; /* Stack columns on mobile */
+        text-align: center;
+    }
+
+    .footer-col .social-links {
+        text-align: center;
+        margin-top: 20px;
+    }
+}
+
+/* Hamburger animation for active state */
+.hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Airtable in The Team */
+.airtable-embed-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 70%; /* Adjust this value for aspect ratio (e.g., 56.25% for 16:9, or 70% for a taller grid) */
+    height: 0;
+    overflow: hidden;
+    margin-top: 40px;
+}
+
+.airtable-embed-wrapper .airtable-embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+@media (max-width: 768px) {
+    .airtable-embed-wrapper {
+        padding-bottom: 120%; /* Taller aspect ratio for mobile */
+    }
+}
