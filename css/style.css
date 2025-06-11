@@ -271,6 +271,10 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--light-text); /* Adjust as needed based on your background and text */
 }
 
+#who-we-are {
+    background-color: rgba(255, 255, 255); /* Semi-transparent black overlay */
+}
+
 #our-services {
     background: url('../assets/images/berkeley-at-night-our-services.png') no-repeat center center/cover;
     color: var(--light-text); /* Change text color if your background is dark */
