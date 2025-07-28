@@ -90,7 +90,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .main-header {
-    background-color: #fff;
+    background-color: #ebebeb;
     padding: 10px 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: sticky;
@@ -102,10 +102,19 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 10px;
+}
+
+.main-header .logo {
+    margin-left: -20px;
 }
 
 .main-header .logo img {
     height: 80px;
+}
+
+.main-nav {
+    margin-right: -20px;
 }
 
 .main-nav .nav-links {
