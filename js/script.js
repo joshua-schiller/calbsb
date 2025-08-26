@@ -90,4 +90,55 @@ document.addEventListener('DOMContentLoaded', () => {
             pillarObserver.observe(item);
         });
     }
+
+    // --- FAQ Expandable Functionality ---
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    if (faqItems.length > 0) {
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const toggle = item.querySelector('.faq-toggle');
+            
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all other FAQ items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                if (isActive) {
+                    item.classList.remove('active');
+                } else {
+                    item.classList.add('active');
+                }
+            });
+            
+            // Add keyboard accessibility
+            question.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    question.click();
+                }
+            });
+            
+            // Set proper ARIA attributes for accessibility
+            question.setAttribute('role', 'button');
+            question.setAttribute('tabindex', '0');
+            question.setAttribute('aria-expanded', 'false');
+            question.setAttribute('aria-controls', `faq-answer-${Array.from(faqItems).indexOf(item)}`);
+            
+            const answer = item.querySelector('.faq-answer');
+            answer.id = `faq-answer-${Array.from(faqItems).indexOf(item)}`;
+            
+            // Update ARIA attributes when toggling
+            question.addEventListener('click', () => {
+                const isExpanded = item.classList.contains('active');
+                question.setAttribute('aria-expanded', isExpanded);
+            });
+        });
+    }
 });
